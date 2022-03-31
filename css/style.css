@@ -1,0 +1,25 @@
+main {
+    background-color: black;
+    width: 100vw;
+    height: 100vw;
+}
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-logo--detalhe {
+    width: 75px;
+    position: relative;
+    left: 35px;
+}
+.modal-logo {
+    width: 400px;
+}
+
+.buttons {
+    padding: 20px;
+    font-size: 25px;
+}
