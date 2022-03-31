@@ -1,25 +1,67 @@
-main {
-    background-color: black;
-    width: 100vw;
-    height: 100vw;
+:root {
+    --modal-bg-color: lightslategrey
 }
-.conteiner {
+body {
+    overflow: hidden;
+    position: absolute;
+}
+
+main {
+    background-color: var(--modal-bg-color);
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.modal-logo--detalhe {
-    width: 75px;
-    position: relative;
-    left: 30px;
+.popup {    
+    background-color: green;
+    max-width: 500px;
+    /* max-height: 800px; */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    
 }
-.modal-logo {
-    width: 400px;
+.conteiner-modal {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 33%;
 }
 
-.buttons {
-    padding: 20px;
+
+.divLogo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.logo {
+    width: 420px;
+   
+}
+
+.logo--detalhe {
+    position: relative; 
+    left: 210px;
+    width: 68px;
+    
+}
+
+.inputsPlay {
+    padding: 10px;
     font-size: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.btn--edit {
+    border: none;
+    color: greenyellow;
+    
 }
