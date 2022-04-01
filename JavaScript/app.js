@@ -32,7 +32,7 @@ function createModal() {
                 <img src="/assets/imgs/logo.svg" alt="logo escrito genius" class="logo">
             </div> 
             <form class="inputsPlay">
-                <input type="text" name="nome" id="nomePlayer"  placeholder="Qual é seu nome?">
+                <input type="text" name="nome" id="nomePlayer" maxlength="5" placeholder="Qual é seu nome?">
                 <button id="btnPlayer" class="inputsPlay btn--edit">Jogar</button>
             </form>
         </div>
