@@ -23,21 +23,23 @@ function createModal() {
 }
 createModal();
 
-const button = document.querySelector("#btnPlayer");
-button.addEventListener('click', (event) => {
-    event.preventDefault()
+
+    const button = document.querySelector("#btnPlayer");
+    button.addEventListener('click', (event) => {
+        event.preventDefault()
+        
+        const popUp = document.querySelector('.popup');
+        const input = document.querySelector("#nomePlayer").value;
     
-    const popUp = document.querySelector('.popup');
-    const input = document.querySelector("#nomePlayer").value;
-
-    if (input === '') {
-        console.log('erroo')
-        console.log(input)
-
-    } else {
-        popUp.classList.add('hide')
-        console.log(input)
-        createBoardGenius(input)
-    }
-
-});
+        if (input === '') {
+            console.log('erroo')
+            console.log(input)
+    
+        } else {
+            popUp.classList.add('hide')
+            console.log(input)
+            createBoardGenius(input)
+        }
+        
+        return input
+    });
