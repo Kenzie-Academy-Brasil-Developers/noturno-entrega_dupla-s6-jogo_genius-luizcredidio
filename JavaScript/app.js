@@ -1,19 +1,27 @@
 function createBoardGenius(input) {
-    console.log(input)
+   
     const main = document.querySelector("main");
     const conteiner = document.createElement('section');
     conteiner.classList.add('board');
 
     conteiner.innerHTML = `
-    <div class='button-game button--green'></div>
-    <div class='button-game button--yellow'></div>
-    <div class='button-game button--red'></div>
-    <div class='button-game button--blue'></div>
-    <div class='player'>${input}</div> 
+    <div>
+        <div class='button-game'>
+            <div class='button--green'></div>
+            <div class='button--yellow'></div>
+            <div class='button--red'></div>
+            <div class='button--blue'></div>
+        </div>
+        <img class='base__game--img'src ="./assets/imgs/base.svg" alt="jogo Genius">
+        <div class='player'>${input}</div> 
+    </div>
+    
     `
-    main.appendChild(conteiner)
+   
+    main.appendChild(conteiner);
 }
-createBoardGenius()
+
+createBoardGenius('Marco');
 
 function createModal() {
     const main = document.querySelector('main');
@@ -36,24 +44,25 @@ function createModal() {
         </div>
     `
 
-    main.appendChild(popUp)
+    main.appendChild(popUp);
 }
-createModal();
+// createModal();
 
 const button = document.querySelector("#btnPlayer");
 button.addEventListener('click', (event) => {
-    event.preventDefault()
+    event.preventDefault();
     
     const popUp = document.querySelector('.popup');
     const input = document.querySelector("#nomePlayer").value;
 
+    console.log(conteinerBoard);
     if (input === '') {
-        console.log('erroo')
-        console.log(input)
+        console.log('erroo');
+        console.log(input);
 
     } else {
-        popUp.classList.add('hide')
+        popUp.classList.add('hide');        
        
-        createBoardGenius(input)
+        createBoardGenius(input);
     }
 });
