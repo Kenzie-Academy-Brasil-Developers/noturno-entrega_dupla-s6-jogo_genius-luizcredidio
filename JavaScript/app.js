@@ -53,8 +53,7 @@ button.addEventListener('click', (event) => {
 
     } else {
         popUp.classList.add('hide')
-        console.log(input)
+       
         createBoardGenius(input)
     }
-
 });
