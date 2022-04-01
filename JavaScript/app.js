@@ -1,5 +1,4 @@
-function createBoardGenius(input) {
-   
+function createBoardGenius(input) {   
     const main = document.querySelector("main");
     const conteiner = document.createElement('section');
     conteiner.classList.add('board');
@@ -17,11 +16,8 @@ function createBoardGenius(input) {
     </div>
     
     `
-   
     main.appendChild(conteiner);
 }
-
-createBoardGenius('Marco');
 
 function createModal() {
     const main = document.querySelector('main');
@@ -29,8 +25,6 @@ function createModal() {
     const popUp = document.createElement('section');
     popUp.classList.add('popup');
     
-
-    //id player tirar daqui
     popUp.innerHTML = `
         <div class="conteiner-modal">
             <div class="divLogo">
@@ -46,7 +40,7 @@ function createModal() {
 
     main.appendChild(popUp);
 }
-// createModal();
+createModal();
 
 const button = document.querySelector("#btnPlayer");
 button.addEventListener('click', (event) => {
@@ -55,7 +49,6 @@ button.addEventListener('click', (event) => {
     const popUp = document.querySelector('.popup');
     const input = document.querySelector("#nomePlayer").value;
 
-    console.log(conteinerBoard);
     if (input === '') {
         console.log('erroo');
         console.log(input);
