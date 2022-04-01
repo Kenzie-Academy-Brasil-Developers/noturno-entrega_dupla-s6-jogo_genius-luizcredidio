@@ -3,6 +3,12 @@
     --modal-bg-gradient: radial-gradient(circle, rgb(132, 132, 132), #414142, #000);
     --modal-boxshadow: 0 3px 10px rgba(255, 255, 255, 0.47);
     --hover--color: rgba(55, 73, 106, 0.583);
+    --color-green: #00b100;
+    --color-red: #B20000;
+    --color-yellow: #b2B000;
+    --color-blue: #0000b2;
+
+
 }
  @font-face {
      font-family: pixelFont;
