@@ -1577,7 +1577,7 @@
 <rect x="1632" y="1680" width="16" height="16" fill="#9C9C9C" />
 <rect x="1648" y="1680" width="16" height="16" fill="#9C9C9C" />
 <rect x="1664" y="1680" width="16" height="16" fill="#9C9C9C" />
-<rect x="1680" y="1680" width="16" height="16" fill="#747474" />
+<rect x="1680" y="1680" width="16" height="16" fill="#9C9C9C" />
 <rect x="1696" y="1680" width="16" height="16" fill="#9C9C9C" />
 <rect x="1712" y="1680" width="16" height="16" fill="#BAB8B8" />
 <rect x="1728" y="1680" width="16" height="16" fill="#9C9C9C" />
@@ -1634,7 +1634,7 @@
 <rect x="2544" y="1680" width="16" height="16" fill="#9C9C9C" />
 <rect x="2560" y="1680" width="16" height="16" fill="#BAB8B8" />
 <rect x="2576" y="1680" width="16" height="16" fill="#9C9C9C" />
-<rect x="2592" y="1680" width="16" height="16" fill="#747474" />
+<rect x="2592" y="1680" width="16" height="16" fill="#9C9C9C" />
 <rect x="2608" y="1680" width="16" height="16" fill="#9C9C9C" />
 <rect x="2624" y="1680" width="16" height="16" fill="#9C9C9C" />
 <rect x="2640" y="1680" width="16" height="16" fill="#9C9C9C" />
@@ -5137,6 +5137,7 @@
 <rect x="1312" y="2192" width="16" height="16" fill="#2A2E34" />
 <rect x="1328" y="2192" width="16" height="16" fill="#2A2E34" />
 <rect x="1344" y="2192" width="16" height="16" fill="#DCDCDC" />
+<rect x="1360" y="2192" width="16" height="16" fill="#9C9C9C" />
 <rect x="1376" y="2192" width="16" height="16" fill="#9C9C9C" />
 <rect x="1392" y="2192" width="16" height="16" fill="#BAB8B8" />
 <rect x="1408" y="2192" width="16" height="16" fill="#9C9C9C" />
@@ -5233,6 +5234,7 @@
 <rect x="2864" y="2192" width="16" height="16" fill="#9C9C9C" />
 <rect x="2880" y="2192" width="16" height="16" fill="#BAB8B8" />
 <rect x="2896" y="2192" width="16" height="16" fill="#9C9C9C" />
+<rect x="2912" y="2192" width="16" height="16" fill="#9C9C9C" />
 <rect x="2928" y="2192" width="16" height="16" fill="#DCDCDC" />
 <rect x="2944" y="2192" width="16" height="16" fill="#2A2E34" />
 <rect x="2960" y="2192" width="16" height="16" fill="#2A2E34" />
@@ -5246,6 +5248,7 @@
 <rect x="1296" y="2208" width="16" height="16" fill="#2A2E34" />
 <rect x="1312" y="2208" width="16" height="16" fill="#2A2E34" />
 <rect x="1328" y="2208" width="16" height="16" fill="#DCDCDC" />
+<rect x="1344" y="2208" width="16" height="16" fill="#9C9C9C" />
 <rect x="1360" y="2208" width="16" height="16" fill="#9C9C9C" />
 <rect x="1376" y="2208" width="16" height="16" fill="#BAB8B8" />
 <rect x="1392" y="2208" width="16" height="16" fill="#9C9C9C" />
@@ -5344,6 +5347,7 @@
 <rect x="2880" y="2208" width="16" height="16" fill="#9C9C9C" />
 <rect x="2896" y="2208" width="16" height="16" fill="#BAB8B8" />
 <rect x="2912" y="2208" width="16" height="16" fill="#9C9C9C" />
+<rect x="2928" y="2208" width="16" height="16" fill="#9C9C9C" />
 <rect x="2944" y="2208" width="16" height="16" fill="#DCDCDC" />
 <rect x="2960" y="2208" width="16" height="16" fill="#2A2E34" />
 <rect x="2976" y="2208" width="16" height="16" fill="#2A2E34" />
@@ -9068,6 +9072,7 @@
 <rect x="2576" y="2576" width="16" height="16" fill="#747474" />
 <rect x="2592" y="2576" width="16" height="16" fill="#BAB8B8" />
 <rect x="2608" y="2576" width="16" height="16" fill="#9C9C9C" />
+<rect x="2624" y="2576" width="16" height="16" fill="#9C9C9C" />
 <rect x="2640" y="2576" width="16" height="16" fill="#9C9C9C" />
 <rect x="2656" y="2576" width="16" height="16" fill="#9C9C9C" />
 <rect x="2672" y="2576" width="16" height="16" fill="#BAB8B8" />
@@ -9453,6 +9458,7 @@
 <rect x="1584" y="2640" width="16" height="16" fill="#9C9C9C" />
 <rect x="1600" y="2640" width="16" height="16" fill="#9C9C9C" />
 <rect x="1616" y="2640" width="16" height="16" fill="#9C9C9C" />
+<rect x="1632" y="2640" width="16" height="16" fill="#9C9C9C" />
 <rect x="1648" y="2640" width="16" height="16" fill="#2A2E34" />
 <rect x="1664" y="2640" width="16" height="16" fill="#2A2E34" />
 <rect x="1680" y="2640" width="16" height="16" fill="#2A2E34" />
@@ -9564,6 +9570,7 @@
 <rect x="1584" y="2656" width="16" height="16" fill="#9C9C9C" />
 <rect x="1600" y="2656" width="16" height="16" fill="#9C9C9C" />
 <rect x="1616" y="2656" width="16" height="16" fill="#9C9C9C" />
+<rect x="1632" y="2656" width="16" height="16" fill="#9C9C9C" />
 <rect x="1648" y="2656" width="16" height="16" fill="#2A2E34" />
 <rect x="1664" y="2656" width="16" height="16" fill="#2A2E34" />
 <rect x="1680" y="2656" width="16" height="16" fill="#474C52" />
@@ -9675,6 +9682,7 @@
 <rect x="1584" y="2672" width="16" height="16" fill="#9C9C9C" />
 <rect x="1600" y="2672" width="16" height="16" fill="#BAB8B8" />
 <rect x="1616" y="2672" width="16" height="16" fill="#9C9C9C" />
+<rect x="1632" y="2672" width="16" height="16" fill="#9C9C9C" />
 <rect x="1648" y="2672" width="16" height="16" fill="#2A2E34" />
 <rect x="1664" y="2672" width="16" height="16" fill="#2A2E34" />
 <rect x="1680" y="2672" width="16" height="16" fill="#474C52" />
@@ -9786,6 +9794,7 @@
 <rect x="1584" y="2688" width="16" height="16" fill="#9C9C9C" />
 <rect x="1600" y="2688" width="16" height="16" fill="#9C9C9C" />
 <rect x="1616" y="2688" width="16" height="16" fill="#9C9C9C" />
+<rect x="1632" y="2688" width="16" height="16" fill="#9C9C9C" />
 <rect x="1648" y="2688" width="16" height="16" fill="#2A2E34" />
 <rect x="1664" y="2688" width="16" height="16" fill="#2A2E34" />
 <rect x="1680" y="2688" width="16" height="16" fill="#474C52" />
@@ -12472,7 +12481,7 @@
 <rect x="1632" y="3072" width="16" height="16" fill="#9C9C9C" />
 <rect x="1648" y="3072" width="16" height="16" fill="#BAB8B8" />
 <rect x="1664" y="3072" width="16" height="16" fill="#9C9C9C" />
-<rect x="1680" y="3072" width="16" height="16" fill="#747474" />
+<rect x="1680" y="3072" width="16" height="16" fill="#9C9C9C" />
 <rect x="1696" y="3072" width="16" height="16" fill="#9C9C9C" />
 <rect x="1712" y="3072" width="16" height="16" fill="#BAB8B8" />
 <rect x="1728" y="3072" width="16" height="16" fill="#9C9C9C" />
@@ -12529,7 +12538,7 @@
 <rect x="2544" y="3072" width="16" height="16" fill="#9C9C9C" />
 <rect x="2560" y="3072" width="16" height="16" fill="#BAB8B8" />
 <rect x="2576" y="3072" width="16" height="16" fill="#9C9C9C" />
-<rect x="2592" y="3072" width="16" height="16" fill="#747474" />
+<rect x="2592" y="3072" width="16" height="16" fill="#9C9C9C" />
 <rect x="2608" y="3072" width="16" height="16" fill="#9C9C9C" />
 <rect x="2624" y="3072" width="16" height="16" fill="#BAB8B8" />
 <rect x="2640" y="3072" width="16" height="16" fill="#9C9C9C" />
