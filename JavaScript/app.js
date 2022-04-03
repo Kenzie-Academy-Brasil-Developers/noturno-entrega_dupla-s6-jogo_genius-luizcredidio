@@ -1,28 +1,3 @@
-function createBoardGenius(input) {
-   
-    const main = document.querySelector("main");
-    const conteiner = document.createElement('section');
-    conteiner.classList.add('board');
-
-    conteiner.innerHTML = `
-    <div>
-        <div class='button-game'>
-            <div class='button--green'></div>
-            <div class='button--yellow'></div>
-            <div class='button--red'></div>
-            <div class='button--blue'></div>
-        </div>
-        <img class='base__game--img'src ="./assets/imgs/base.svg" alt="jogo Genius">
-        <div class='player'>${input}</div> 
-    </div>
-    
-    `
-   
-    main.appendChild(conteiner);
-}
-
-createBoardGenius('Marco');
-
 function createModal() {
     const main = document.querySelector('main');
 
@@ -46,30 +21,34 @@ function createModal() {
 
     main.appendChild(popUp);
 }
-// createModal();
 
-const button = document.querySelector("#btnPlayer");
-button.addEventListener('click', (event) => {
-    event.preventDefault();
-    
-    const popUp = document.querySelector('.popup');
-    const input = document.querySelector("#nomePlayer").value;
 
-    console.log(conteinerBoard);
-    if (input === '') {
-        console.log('erroo');
-        console.log(input);
+function btnJogar() {
+        const button = document.querySelector("#btnPlayer");
+        console.log(button)
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            
+            const popUp = document.querySelector('.popup');
+            const input = document.querySelector("#nomePlayer").value;
 
-    } else {
-        popUp.classList.add('hide');        
-       
-        createBoardGenius(input);
-    }
-});
+            // console.log(conteinerBoard);
+            if (input === '') {
+                console.log('erro');
+                console.log(input);
 
-let main = document.getElementById('main')
+            } else {
+                popUp.classList.add('hide');        
+                goToRulesCard()
+                
+            }
+        });
+}
+
 
 function createRulesCard (){
+    const main = document.querySelector('main');
+    
     let divContainer = document.createElement("div")
     let divCard = document.createElement("div")
     let boaSorte = document.createElement("h2")
@@ -81,7 +60,7 @@ function createRulesCard (){
     btn.setAttribute("type",'button')
     btn.classList.add('cr_btn--avançar')
     boaSorte.classList.add('cr_boaSorte')
-    divContainer.classList.add('popup')
+    divContainer.classList.add('containerRules')
     divCard.classList.add("cr_rulesCard")
     titleRules.classList.add('cr_titleRules')
     rulesText.classList.add('cr_rulesText')
@@ -99,4 +78,52 @@ function createRulesCard (){
     main.appendChild(divContainer)
     
 }
-createRulesCard()
+
+function btnAvancar() {
+    const buttonAvn = document.querySelector(".cr_btn--avançar");
+    console.log(buttonAvn)
+    buttonAvn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const divContainer = document.querySelector('.containerRules');
+        divContainer.classList.add('hide');
+        createBoardGenius('teste');
+    })
+}
+
+function createBoardGenius(input) {
+   
+    const main = document.querySelector("main");
+    const conteiner = document.createElement('section');
+    conteiner.classList.add('board');
+
+    conteiner.innerHTML = `
+    <div>
+        <div class='button-game'>
+            <div class='button--green'></div>
+            <div class='button--yellow'></div>
+            <div class='button--red'></div>
+            <div class='button--blue'></div>
+        </div>
+        <img class='base__game--img'src ="./assets/imgs/base.svg" alt="jogo Genius">
+        <div class='player'>${input}</div> 
+    </div>
+    
+    `
+   
+    main.appendChild(conteiner);
+}
+
+/***********************************************************************************/
+function goToRulesCard(){
+    createRulesCard()
+    btnAvancar()
+}
+    
+function gameFlow(){
+    createModal()
+    btnJogar()
+    
+}
+
+gameFlow()
