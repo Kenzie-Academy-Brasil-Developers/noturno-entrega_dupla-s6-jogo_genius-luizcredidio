@@ -233,7 +233,8 @@ input:hover {
 .notification--disable {
     background-color: var(--color-red);
     opacity: 100%;
-
+}
+ 
 .containerRules{
 
     background-image: var(--modal-bg-gradient);
@@ -245,11 +246,6 @@ input:hover {
     color: white;
     position: absolute;
     
-}
-.hideDois {
-
-    display: none;
-
 }
 .cr_rulesCard{
 

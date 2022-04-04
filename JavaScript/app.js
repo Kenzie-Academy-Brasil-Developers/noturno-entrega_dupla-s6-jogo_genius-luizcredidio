@@ -19,7 +19,7 @@ function createBoardGenius(input) {
     main.appendChild(conteiner);
 }
 
-createBoardGenius('Marco')
+
 
 function createModal() {
     const main = document.querySelector('main');
@@ -46,21 +46,18 @@ function createModal() {
 function btnJogar() {
   const button = document.querySelector("#btnPlayer");
 
-  button.addEventListener('click', (event) => {
-      event.preventDefault();
+    button.addEventListener('click', (event) => {
+    event.preventDefault(); 
 
-      const popUp = document.querySelector('.popup');
-      const input = document.querySelector("#nomePlayer").value;
-          if (input === '') {
-              console.log('erro');
-              console.log(input);
+    const popUp = document.querySelector('.popup');
+    const input = document.querySelector("#nomePlayer").value;
+        if (input === '') {
+            console.log('erro');
 
-          }    
-          else {
-              popUp.classList.add('hide');        
-              goToRulesCard()
-
-          }            
+        } else {
+            popUp.classList.add('hide');        
+            goToRulesCard();
+        }            
 })}
 
 
@@ -99,13 +96,15 @@ function createRulesCard (){
 
 function btnAvancar() {
     const buttonAvn = document.querySelector(".cr_btn--avançar");
-    
+    const input = document.querySelector("#nomePlayer").value;
+   
+
     buttonAvn.addEventListener('click', (event) => {
         event.preventDefault();
 
         const divContainer = document.querySelector('.containerRules');
         divContainer.classList.add('hide');
-        createBoardGenius('Marco');
+        createBoardGenius(input);
     })
 }
 
