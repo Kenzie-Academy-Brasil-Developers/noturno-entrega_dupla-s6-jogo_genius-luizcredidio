@@ -234,6 +234,72 @@ input:hover {
     background-color: var(--color-red);
     opacity: 100%;
 
+.containerRules{
 
+    background-image: var(--modal-bg-gradient);
+    box-shadow: var(--modal-boxshadow);  
+
+    max-width: 500px;
+    height: 100%;
+    width: 100%; 
+    color: white;
+    position: absolute;
+    
+}
+.hideDois {
+
+    display: none;
+
+}
+.cr_rulesCard{
+
+    background-color: var(--modal-bg-gradient);
+    text-align: center;
+    margin: 25px;
+    background-color: --modal-bg-gradient;
+    width: 90%;
+    height: 350px;
+    
+}
+
+.cr_rulesText {
+
+    margin: 5px;
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.cr_titleRules{
+
+    margin: 10px;
+    font-size: 50px;
+}
+
+.cr_boaSorte {
+
+    background-color: --modal-bg-gradient;
+    margin: 20px;
+    font-size: 45px;
+
+}
+
+.cr_btn--avançar{
+
+    color: white;
+    background-color: rgba(103, 94, 94, 0.603);
+    box-shadow: 0 9px #999;
+    border-radius: 15px;
+    margin: 15%;
+    width: 70%;
+    font-size: 50px;
+    
+}
+
+.cr_btn--avançar:active{
+
+    background-color: #222222;
+    box-shadow: var(--modal-boxshadow); 
+    transform: translateY(4px);
 
 }

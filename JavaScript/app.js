@@ -18,7 +18,7 @@ function createBoardGenius(input) {
     `
     main.appendChild(conteiner);
 }
-/*APAGAR */
+
 createBoardGenius('Marco')
 
 function createModal() {
@@ -43,30 +43,30 @@ function createModal() {
     main.appendChild(popUp);
 }
 
-/*Descomentar */
-// createModal();
+function btnJogar() {
+  const button = document.querySelector("#btnPlayer");
 
-const button = document.querySelector("#btnPlayer");
-button.addEventListener('click', (event) => {
-    event.preventDefault();
-    
-    const popUp = document.querySelector('.popup');
-    const input = document.querySelector("#nomePlayer").value;
+  button.addEventListener('click', (event) => {
+      event.preventDefault();
 
-    if (input === '') {
-        console.log('erroo');
-        console.log(input);
+      const popUp = document.querySelector('.popup');
+      const input = document.querySelector("#nomePlayer").value;
+          if (input === '') {
+              console.log('erro');
+              console.log(input);
 
-    } else {
-        popUp.classList.add('hide');        
-       
-        createBoardGenius(input);
-    }
-});
+          }    
+          else {
+              popUp.classList.add('hide');        
+              goToRulesCard()
 
-let main = document.getElementById('main')
+          }            
+})}
+
 
 function createRulesCard (){
+    const main = document.querySelector('main');
+    
     let divContainer = document.createElement("div")
     let divCard = document.createElement("div")
     let boaSorte = document.createElement("h2")
@@ -78,7 +78,7 @@ function createRulesCard (){
     btn.setAttribute("type",'button')
     btn.classList.add('cr_btn--avançar')
     boaSorte.classList.add('cr_boaSorte')
-    divContainer.classList.add('popup')
+    divContainer.classList.add('containerRules')
     divCard.classList.add("cr_rulesCard")
     titleRules.classList.add('cr_titleRules')
     rulesText.classList.add('cr_rulesText')
@@ -96,4 +96,28 @@ function createRulesCard (){
     main.appendChild(divContainer)
     
 }
-createRulesCard()
+
+function btnAvancar() {
+    const buttonAvn = document.querySelector(".cr_btn--avançar");
+    
+    buttonAvn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const divContainer = document.querySelector('.containerRules');
+        divContainer.classList.add('hide');
+        createBoardGenius('Marco');
+    })
+}
+
+
+function goToRulesCard(){
+    createRulesCard()
+    btnAvancar()
+}
+    
+function gameFlow(){
+    createModal()
+    btnJogar()
+}
+
+gameFlow()
