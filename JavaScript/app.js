@@ -25,7 +25,7 @@ function createModal() {
 
 function btnJogar() {
         const button = document.querySelector("#btnPlayer");
-        console.log(button)
+        
         button.addEventListener('click', (event) => {
             event.preventDefault();
             
@@ -81,13 +81,13 @@ function createRulesCard (){
 
 function btnAvancar() {
     const buttonAvn = document.querySelector(".cr_btn--avançar");
-    console.log(buttonAvn)
+    
     buttonAvn.addEventListener('click', (event) => {
         event.preventDefault();
 
         const divContainer = document.querySelector('.containerRules');
         divContainer.classList.add('hide');
-        createBoardGenius('teste');
+        createBoardGenius();
     })
 }
 
@@ -100,17 +100,16 @@ function createBoardGenius(input) {
     conteiner.innerHTML = `
     <div>
         <div class='button-game'>
-            <div class='button--green'></div>
-            <div class='button--yellow'></div>
-            <div class='button--red'></div>
-            <div class='button--blue'></div>
+            <div class='button button--green'></div>
+            <div class='button button--yellow'></div>
+            <div class='button button--red'></div>
+            <div class='button button--blue'></div>
         </div>
-        <img class='base__game--img'src ="./assets/imgs/base.svg" alt="jogo Genius">
+        
         <div class='player'>${input}</div> 
     </div>
-    
     `
-   
+    // <img class='base__game--img'src ="./assets/imgs/pingo-i--logo.svg" alt="jogo Genius">
     main.appendChild(conteiner);
 }
 
@@ -123,7 +122,17 @@ function goToRulesCard(){
 function gameFlow(){
     createModal()
     btnJogar()
-    
 }
 
-gameFlow()
+createBoardGenius()
+    const botao = document.querySelectorAll('.button')
+    console.log(botao)
+
+    botao[0].addEventListener('click', (event) => {
+        console.log('teste')
+        botao[0].classList.add('animationGreen')
+        setTimeout(() => {
+            botao[0].classList.remove('animationGreen')
+        }, 2000)
+    })
+
