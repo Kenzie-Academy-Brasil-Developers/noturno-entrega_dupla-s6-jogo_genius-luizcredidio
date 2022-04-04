@@ -1,4 +1,5 @@
-function createBoardGenius(input) {   
+function createBoardGenius(input) {
+   
     const main = document.querySelector("main");
     const conteiner = document.createElement('section');
     conteiner.classList.add('board');
@@ -6,16 +7,16 @@ function createBoardGenius(input) {
     conteiner.innerHTML = `
     <div>
         <div class='button-game'>
-            <div class='button--green'></div>
-            <div class='button--yellow'></div>
-            <div class='button--red'></div>
-            <div class='button--blue'></div>
+            <div class='button button--green'></div>
+            <div class='button button--yellow'></div>
+            <div class='button button--red'></div>
+            <div class='button button--blue'></div>
         </div>
-        <img class='base__game--img'src ="./assets/imgs/base.svg" alt="jogo Genius">
+        
         <div class='player'>${input}</div> 
     </div>
-    
     `
+    // <img class='base__game--img'src ="./assets/imgs/pingo-i--logo.svg" alt="jogo Genius">
     main.appendChild(conteiner);
 }
 
@@ -40,6 +41,47 @@ function createModal() {
 
     main.appendChild(popUp);
 }
+
+function btnJogar() {
+
+        const button = document.querySelector("#btnPlayer");
+        
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            
+            const popUp = document.querySelector('.popup');
+            const input = document.querySelector("#nomePlayer").value;
+
+            // console.log(conteinerBoard);
+            if (input === '') {
+                console.log('erro');
+                console.log(input);
+
+            } else {
+                popUp.classList.add('hide');        
+                goToRulesCard()
+                
+            }
+        });
+}
+
+  const button = document.querySelector("#btnPlayer");
+
+    button.addEventListener('click', (event) => {
+    event.preventDefault(); 
+
+    const popUp = document.querySelector('.popup');
+    const input = document.querySelector("#nomePlayer").value;
+        if (input === '') {
+            console.log('erro');
+
+        } else {
+            popUp.classList.add('hide');        
+            goToRulesCard();
+        }            
+})
+
+
 
 function createRulesCard (){
     const main = document.querySelector('main');
@@ -99,8 +141,6 @@ function btnJogar() {
 function btnAvancar() {
     const buttonAvn = document.querySelector(".cr_btn--avançar");
     const input = document.querySelector("#nomePlayer").value;
-   
-
     buttonAvn.addEventListener('click', (event) => {
         event.preventDefault();
 
@@ -109,6 +149,7 @@ function btnAvancar() {
         createBoardGenius(input);
     })
 }
+
 
 function goToRulesCard(){
     createRulesCard()
@@ -119,7 +160,7 @@ function gameFlow(){
     createModal()
     btnJogar()
 }
-git
+
 gameFlow()
 createBoardGenius()
     const botao = document.querySelectorAll('.button')
