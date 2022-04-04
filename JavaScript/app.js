@@ -18,6 +18,8 @@ function createBoardGenius(input) {
     `
     main.appendChild(conteiner);
 }
+/*APAGAR */
+createBoardGenius('Marco')
 
 function createModal() {
     const main = document.querySelector('main');
@@ -40,7 +42,9 @@ function createModal() {
 
     main.appendChild(popUp);
 }
-createModal();
+
+/*Descomentar */
+// createModal();
 
 const button = document.querySelector("#btnPlayer");
 button.addEventListener('click', (event) => {

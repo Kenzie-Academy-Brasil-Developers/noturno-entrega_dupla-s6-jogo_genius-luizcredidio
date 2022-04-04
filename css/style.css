@@ -1,22 +1,28 @@
 :root {
     --main-bg-color: conic-gradient(#000, #414142, #000, #414142, #000);
     --modal-bg-gradient: radial-gradient(circle, rgb(132, 132, 132), #414142, #000);
-    --modal-boxshadow: 0 3px 10px rgba(255, 255, 255, 0.47);
+    --modal-boxshadow: 0 3px 10px rgba(255, 255, 255, 0.79);
     --hover--color: rgba(55, 73, 106, 0.583);
+    
+    --btn--color: rgba(103, 94, 94, 0.603);
+    --btn-color--click: #222222;
+    --input--color: rgba(234, 227, 227, 0.249);
+    --placeholder--color: white;
+
     --color-green: #00b100;
     --color-red: #B20000;
     --color-yellow: #b2B000;
     --color-blue: #0000b2;
-
-
 }
  @font-face {
      font-family: pixelFont;
      src: url(/assets/font/cayetano.regular.ttf);
  }
+
 * {
      font-family: pixelFont;
 }
+
 body {
     overflow: hidden;
     position: absolute;
@@ -87,23 +93,23 @@ main {
     border: none;
     cursor: pointer;
     
-    color: white;
-    background-color: rgba(103, 94, 94, 0.603);
+    color: var(--placeholder--color);
+    background-color: var(--btn--color);
     box-shadow: 0 9px #999;
-
-
 
     padding: 15px 125px;
 }
+
 input {
-    background-color: rgba(234, 227, 227, 0.249);
+    background-color: var(--input--color);
     border: 3px solid white;
 
 }
 
 input::placeholder {       
-    color: white;
+    color: var(--placeholder--color);
 }
+
 input:hover {
     content: 'Vamos digitar?';
     background-color: var(--hover--color);
@@ -111,7 +117,7 @@ input:hover {
 }
 
 .btn--edit:active {
-  background-color: #222222;
+  background-color: var(--btn-color--click);
   box-shadow: var(--modal-boxshadow); 
 
   transform: translateY(4px);
@@ -120,16 +126,18 @@ input:hover {
 .hide {
     display: none;
 }
+
 .board {
     position: absolute;
 }
 
 .base__game--img {
-    width: 750px; 
     position: absolute;
     left: -300px;
     bottom: -387px;
 
+    width: 750px; 
+    
 }
 
 .player {
@@ -145,6 +153,7 @@ input:hover {
 .button-game {
     position: absolute;
 }
+
 .button--green {
     position: relative;
     left: -296px;
@@ -156,13 +165,11 @@ input:hover {
     background-color: var(--color-green);
 
     border-radius: 150% 0 0 0;
-   
 
 }
+
 .button--yellow {
     position: relative;  
-
-    
     bottom: 795px;
     left: 87px;
 
@@ -171,26 +178,22 @@ input:hover {
 
     background-color: var(--color-yellow);
     border-radius: 0 150% 0  0;
-
-
 }
+
 .button--red {
     position: relative;  
-
     bottom: 753px;
     right: 296px;
-
 
     width: 360px;
     height: 397px;
 
     background-color: var(--color-red);
     border-radius: 0 0 0  150%;
-    
 }
+
 .button--blue {
     position: relative;  
-
     bottom: 1150px;
     left: 88px;
 
@@ -199,7 +202,38 @@ input:hover {
 
     background-color: var(--color-blue);
     border-radius: 0 0 150% 0;
+}
+
+.notification {
+    position: relative;
+    left: 7px;
+    top: -5px;
+    
+    font-size: 35px;
+    color: white;
+    
+    padding: 20px;
+    
+    border-radius: 20px;
+    
+    box-shadow: var(--modal-boxshadow);
+    
+    z-index: 1;
+
+    opacity: 0%;
+    transition: 5s;
+}
+
+.notification--active {
+    background-color: var(--color-green);
+    opacity: 100%;
 
 }
 
+.notification--disable {
+    background-color: var(--color-red);
+    opacity: 100%;
 
+
+
+}
