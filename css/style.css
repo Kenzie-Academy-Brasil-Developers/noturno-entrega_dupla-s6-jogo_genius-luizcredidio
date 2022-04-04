@@ -133,17 +133,16 @@ input:hover {
 
 .base__game--img {
     position: absolute;
-    left: -300px;
-    bottom: -387px;
+    left: -90px;
+    bottom: -130px;
 
-    width: 750px; 
-    
+    width: 330px;
 }
 
 .player {
     position: relative;
-    left: 13px;
-    bottom: 75px;
+    left: 12px;
+    bottom: 80px;
     
     color: var(--color-red);
 
@@ -299,7 +298,6 @@ input:hover {
     transform: translateY(4px);
 
 }
-
 /**************************Animação Cores*********************************/
 @keyframes animationGreen{
     50%{
