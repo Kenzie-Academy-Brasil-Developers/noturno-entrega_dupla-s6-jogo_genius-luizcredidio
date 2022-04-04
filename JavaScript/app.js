@@ -41,32 +41,6 @@ function createModal() {
     main.appendChild(popUp);
 }
 
-function btnJogar() {
-        const button = document.querySelector("#btnPlayer");
-
-        button.addEventListener('click', (event) => {
-        event.preventDefault();
-            
-        const popUp = document.querySelector('.popup');
-        const input = document.querySelector("#nomePlayer").value;
-
-        // console.log(conteinerBoard);
-        if (input === '') {
-            console.log('erro');
-            console.log(input);
-
-        } else {
-            popUp.classList.add('hide');        
-            goToRulesCard()
-            
-        }
-    });
-}
-
-
-
-
-
 function createRulesCard (){
     const main = document.querySelector('main');
     
@@ -100,6 +74,28 @@ function createRulesCard (){
     
 }
 
+function btnJogar() {
+    const button = document.querySelector("#btnPlayer");
+
+    button.addEventListener('click', (event) => {
+    event.preventDefault();
+        
+    const popUp = document.querySelector('.popup');
+    const input = document.querySelector("#nomePlayer").value;
+
+    // console.log(conteinerBoard);
+    if (input === '') {
+        console.log('erro');
+        console.log(input);
+
+    } else {
+        popUp.classList.add('hide');        
+        goToRulesCard()
+        
+    }
+});
+}
+
 function btnAvancar() {
     const buttonAvn = document.querySelector(".cr_btn--avançar");
     const input = document.querySelector("#nomePlayer").value;
@@ -112,28 +108,6 @@ function btnAvancar() {
         divContainer.classList.add('hide');
         createBoardGenius(input);
     })
-}
-
-function createBoardGenius(input) {
-   
-    const main = document.querySelector("main");
-    const conteiner = document.createElement('section');
-    conteiner.classList.add('board');
-
-    conteiner.innerHTML = `
-    <div>
-        <div class='button-game'>
-            <div class='button button--green'></div>
-            <div class='button button--yellow'></div>
-            <div class='button button--red'></div>
-            <div class='button button--blue'></div>
-        </div>
-        // <img class='base__game--img'src ="./assets/imgs/pingo-i--logo.svg" alt="jogo Genius">
-        
-        <div class='player'>${input}</div> 
-    </div>
-    `
-    main.appendChild(conteiner);
 }
 
 function goToRulesCard(){
