@@ -133,17 +133,16 @@ input:hover {
 
 .base__game--img {
     position: absolute;
-    left: -300px;
-    bottom: -387px;
+    left: -90px;
+    bottom: -130px;
 
-    width: 750px; 
-    
+    width: 330px;
 }
 
 .player {
     position: relative;
-    left: 13px;
-    bottom: 75px;
+    left: 12px;
+    bottom: 80px;
     
     color: var(--color-red);
 
@@ -203,6 +202,7 @@ input:hover {
     background-color: var(--color-blue);
     border-radius: 0 0 150% 0;
 }
+<<<<<<< HEAD
 
 .notification {
     position: relative;
@@ -299,3 +299,5 @@ input:hover {
     transform: translateY(4px);
 
 }
+=======
+>>>>>>> 2ed61318f1336f1f1184b9e871ad6594096232c4
