@@ -202,7 +202,6 @@ input:hover {
     background-color: var(--color-blue);
     border-radius: 0 0 150% 0;
 }
-<<<<<<< HEAD
 
 .notification {
     position: relative;
@@ -299,5 +298,3 @@ input:hover {
     transform: translateY(4px);
 
 }
-=======
->>>>>>> 2ed61318f1336f1f1184b9e871ad6594096232c4
