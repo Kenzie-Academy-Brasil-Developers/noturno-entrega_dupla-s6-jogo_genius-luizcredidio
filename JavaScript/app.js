@@ -120,9 +120,7 @@ function gameFlow(){
     btnJogar()
 }
 
-<<<<<<< HEAD
 gameFlow()
-=======
 createBoardGenius()
     const botao = document.querySelectorAll('.button')
 
@@ -143,4 +141,3 @@ let contador = 0;
 function randomNumbers(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
 }
->>>>>>> 4ef3f265d330a69f1778d4ed2ec01acc56eb9274
