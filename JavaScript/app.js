@@ -146,7 +146,7 @@ function gameFlow(){
 
 createBoardGenius()
     const botao = document.querySelectorAll('.button')
-    console.log(botao)
+
 
     botao[0].addEventListener('click', (event) => {
         console.log('teste')
@@ -156,3 +156,11 @@ createBoardGenius()
         }, 2000)
     })
 
+let jogasPc = [];
+let jogadasPlayer = [];
+let contador = 0;
+
+
+function randomNumbers(min, max) {
+    return Math.floor(Math.random() * (max - min) + min)
+}
