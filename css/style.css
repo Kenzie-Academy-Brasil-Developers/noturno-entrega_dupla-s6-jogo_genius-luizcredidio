@@ -125,17 +125,17 @@ input:hover {
 }
 
 .base__game--img {
-    width: 750px; 
     position: absolute;
-    left: -300px;
-    bottom: -387px;
+    left: -90px;
+    bottom: -130px;
 
+    width: 330px;
 }
 
 .player {
     position: relative;
-    left: 13px;
-    bottom: 75px;
+    left: 20px;
+    bottom: 81px;
     
     color: var(--color-red);
 

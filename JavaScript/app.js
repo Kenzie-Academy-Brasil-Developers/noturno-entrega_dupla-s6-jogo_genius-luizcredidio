@@ -11,7 +11,7 @@ function createBoardGenius(input) {
             <div class='button--red'></div>
             <div class='button--blue'></div>
         </div>
-        <img class='base__game--img'src ="./assets/imgs/base.svg" alt="jogo Genius">
+        <img class='base__game--img'src ="./assets/imgs/pingo-i--logo.svg" alt="jogo Genius">
         <div class='player'>${input}</div> 
     </div>
     
@@ -51,7 +51,6 @@ button.addEventListener('click', (event) => {
 
     if (input === '') {
         console.log('erroo');
-        console.log(input);
 
     } else {
         popUp.classList.add('hide');        
