@@ -134,9 +134,9 @@ input:hover {
 
 .player {
     position: relative;
-    left: 313px;
-
-    bottom: 510px;
+    left: 13px;
+    bottom: 75px;
+    
     color: var(--color-red);
 
     font-size: 50px;   

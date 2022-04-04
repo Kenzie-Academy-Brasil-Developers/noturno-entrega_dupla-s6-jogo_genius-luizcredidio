@@ -1,11 +1,30 @@
+function createBoardGenius(input) {   
+    const main = document.querySelector("main");
+    const conteiner = document.createElement('section');
+    conteiner.classList.add('board');
+
+    conteiner.innerHTML = `
+    <div>
+        <div class='button-game'>
+            <div class='button--green'></div>
+            <div class='button--yellow'></div>
+            <div class='button--red'></div>
+            <div class='button--blue'></div>
+        </div>
+        <img class='base__game--img'src ="./assets/imgs/base.svg" alt="jogo Genius">
+        <div class='player'>${input}</div> 
+    </div>
+    
+    `
+    main.appendChild(conteiner);
+}
+
 function createModal() {
     const main = document.querySelector('main');
 
     const popUp = document.createElement('section');
     popUp.classList.add('popup');
     
-
-    //id player tirar daqui
     popUp.innerHTML = `
         <div class="conteiner-modal">
             <div class="divLogo">
@@ -13,7 +32,7 @@ function createModal() {
                 <img src="/assets/imgs/logo.svg" alt="logo escrito genius" class="logo">
             </div> 
             <form class="inputsPlay">
-                <input type="text" name="nome" id="nomePlayer"  placeholder="Qual é seu nome?">
+                <input type="text" name="nome" id="nomePlayer" maxlength="5" placeholder="Qual é seu nome?">
                 <button id="btnPlayer" class="inputsPlay btn--edit">Jogar</button>
             </form>
         </div>
@@ -21,29 +40,29 @@ function createModal() {
 
     main.appendChild(popUp);
 }
+// createModal();
 
 
 function btnJogar() {
         const button = document.querySelector("#btnPlayer");
-        console.log(button)
+        
         button.addEventListener('click', (event) => {
             event.preventDefault();
             
             const popUp = document.querySelector('.popup');
             const input = document.querySelector("#nomePlayer").value;
+                if (input === '') {
+                    console.log('erro');
+                    console.log(input);
 
-            // console.log(conteinerBoard);
-            if (input === '') {
-                console.log('erro');
-                console.log(input);
-
-            } else {
-                popUp.classList.add('hide');        
-                goToRulesCard()
-                
-            }
-        });
-}
+                }    
+                else {
+                    popUp.classList.add('hide');        
+                    goToRulesCard()
+                    
+                }
+            
+})}
 
 
 function createRulesCard (){
@@ -81,38 +100,38 @@ function createRulesCard (){
 
 function btnAvancar() {
     const buttonAvn = document.querySelector(".cr_btn--avançar");
-    console.log(buttonAvn)
+    
     buttonAvn.addEventListener('click', (event) => {
         event.preventDefault();
 
         const divContainer = document.querySelector('.containerRules');
         divContainer.classList.add('hide');
-        createBoardGenius('teste');
+        createBoardGenius('Marco');
     })
 }
 
-function createBoardGenius(input) {
+// function createBoardGenius(input) {
    
-    const main = document.querySelector("main");
-    const conteiner = document.createElement('section');
-    conteiner.classList.add('board');
+//     const main = document.querySelector("main");
+//     const conteiner = document.createElement('section');
+//     conteiner.classList.add('board');
 
-    conteiner.innerHTML = `
-    <div>
-        <div class='button-game'>
-            <div class='button--green'></div>
-            <div class='button--yellow'></div>
-            <div class='button--red'></div>
-            <div class='button--blue'></div>
-        </div>
-        <img class='base__game--img'src ="./assets/imgs/base.svg" alt="jogo Genius">
-        <div class='player'>${input}</div> 
-    </div>
+//     conteiner.innerHTML = `
+//     <div>
+//         <div class='button-game'>
+//             <div class='button--green'></div>
+//             <div class='button--yellow'></div>
+//             <div class='button--red'></div>
+//             <div class='button--blue'></div>
+//         </div>
+//         <img class='base__game--img'src ="./assets/imgs/base.svg" alt="jogo Genius">
+//         <div class='player'>${input}</div> 
+//     </div>
     
-    `
+//     `
    
-    main.appendChild(conteiner);
-}
+//     main.appendChild(conteiner);
+// }
 
 /***********************************************************************************/
 function goToRulesCard(){
@@ -123,7 +142,6 @@ function goToRulesCard(){
 function gameFlow(){
     createModal()
     btnJogar()
-    
 }
 
 gameFlow()
