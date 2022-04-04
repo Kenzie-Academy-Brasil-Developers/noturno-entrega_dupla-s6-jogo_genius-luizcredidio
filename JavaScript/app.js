@@ -44,6 +44,28 @@ function createModal() {
 }
 
 function btnJogar() {
+
+        const button = document.querySelector("#btnPlayer");
+        
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            
+            const popUp = document.querySelector('.popup');
+            const input = document.querySelector("#nomePlayer").value;
+
+            // console.log(conteinerBoard);
+            if (input === '') {
+                console.log('erro');
+                console.log(input);
+
+            } else {
+                popUp.classList.add('hide');        
+                goToRulesCard()
+                
+            }
+        });
+}
+
   const button = document.querySelector("#btnPlayer");
 
     button.addEventListener('click', (event) => {
@@ -59,6 +81,7 @@ function btnJogar() {
             goToRulesCard();
         }            
 })}
+
 
 
 function createRulesCard (){
@@ -97,8 +120,6 @@ function createRulesCard (){
 function btnAvancar() {
     const buttonAvn = document.querySelector(".cr_btn--avançar");
     const input = document.querySelector("#nomePlayer").value;
-   
-
     buttonAvn.addEventListener('click', (event) => {
         event.preventDefault();
 
@@ -108,6 +129,27 @@ function btnAvancar() {
     })
 }
 
+function createBoardGenius(input) {
+   
+    const main = document.querySelector("main");
+    const conteiner = document.createElement('section');
+    conteiner.classList.add('board');
+
+    conteiner.innerHTML = `
+    <div>
+        <div class='button-game'>
+            <div class='button button--green'></div>
+            <div class='button button--yellow'></div>
+            <div class='button button--red'></div>
+            <div class='button button--blue'></div>
+        </div>
+        
+        <div class='player'>${input}</div> 
+    </div>
+    `
+    // <img class='base__game--img'src ="./assets/imgs/pingo-i--logo.svg" alt="jogo Genius">
+    main.appendChild(conteiner);
+}
 
 function goToRulesCard(){
     createRulesCard()
@@ -119,4 +161,15 @@ function gameFlow(){
     btnJogar()
 }
 
-gameFlow()
+createBoardGenius()
+    const botao = document.querySelectorAll('.button')
+    console.log(botao)
+
+    botao[0].addEventListener('click', (event) => {
+        console.log('teste')
+        botao[0].classList.add('animationGreen')
+        setTimeout(() => {
+            botao[0].classList.remove('animationGreen')
+        }, 2000)
+    })
+
