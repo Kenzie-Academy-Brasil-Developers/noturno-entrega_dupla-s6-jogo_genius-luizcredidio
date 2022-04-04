@@ -19,6 +19,8 @@ function createBoardGenius(input) {
     main.appendChild(conteiner);
 }
 
+createBoardGenius('Marco')
+
 function createModal() {
     const main = document.querySelector('main');
 
@@ -40,28 +42,25 @@ function createModal() {
 
     main.appendChild(popUp);
 }
-// createModal();
-
 
 function btnJogar() {
-        const button = document.querySelector("#btnPlayer");
-        
-        button.addEventListener('click', (event) => {
-            event.preventDefault();
-            
-            const popUp = document.querySelector('.popup');
-            const input = document.querySelector("#nomePlayer").value;
-                if (input === '') {
-                    console.log('erro');
-                    console.log(input);
+  const button = document.querySelector("#btnPlayer");
 
-                }    
-                else {
-                    popUp.classList.add('hide');        
-                    goToRulesCard()
-                    
-                }
-            
+  button.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      const popUp = document.querySelector('.popup');
+      const input = document.querySelector("#nomePlayer").value;
+          if (input === '') {
+              console.log('erro');
+              console.log(input);
+
+          }    
+          else {
+              popUp.classList.add('hide');        
+              goToRulesCard()
+
+          }            
 })}
 
 
@@ -110,30 +109,7 @@ function btnAvancar() {
     })
 }
 
-// function createBoardGenius(input) {
-   
-//     const main = document.querySelector("main");
-//     const conteiner = document.createElement('section');
-//     conteiner.classList.add('board');
 
-//     conteiner.innerHTML = `
-//     <div>
-//         <div class='button-game'>
-//             <div class='button--green'></div>
-//             <div class='button--yellow'></div>
-//             <div class='button--red'></div>
-//             <div class='button--blue'></div>
-//         </div>
-//         <img class='base__game--img'src ="./assets/imgs/base.svg" alt="jogo Genius">
-//         <div class='player'>${input}</div> 
-//     </div>
-    
-//     `
-   
-//     main.appendChild(conteiner);
-// }
-
-/***********************************************************************************/
 function goToRulesCard(){
     createRulesCard()
     btnAvancar()
