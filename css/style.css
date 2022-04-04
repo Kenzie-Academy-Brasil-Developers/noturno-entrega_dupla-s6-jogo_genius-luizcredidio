@@ -298,3 +298,56 @@ input:hover {
     transform: translateY(4px);
 
 }
+/**************************Animação Cores*********************************/
+@keyframes animationGreen{
+    50%{
+        background-color: #00CC00;
+        transform: scale(1.05);
+        box-shadow: 0px 5px 50px 5px rgba(255, 255, 255, 0.8); 
+    }
+}
+
+@keyframes animationYellow{
+    50%{
+        background-color: #CCC000;
+        transform: scale(1.05);
+        box-shadow: 0px 5px 50px 5px rgba(255, 255, 255, 0.8); 
+    }
+}
+
+@keyframes animationBlue{
+    50%{
+        background-color: #0000CC;
+        transform: scale(1.05);
+        box-shadow: 0px 5px 50px 5px rgba(255, 255, 255, 0.8); 
+    }
+}
+
+@keyframes animationRed{
+    50%{
+        background-color: #CC0000;
+        transform: scale(1.05);
+        box-shadow: 0px 5px 50px 5px rgba(255, 255, 255, 0.8); 
+    }
+}
+
+
+.animationRed{
+    animation-name: animacaoRed;
+    animation-duration: 1s;
+}
+
+.animationBlue{
+    animation-name: animacaoBlue;
+    animation-duration: 1s;
+}
+
+.animationGreen{
+    animation-name: animationGreen;
+    animation-duration: 2s;
+}
+
+.animationYellow{
+    animation-name: animacaoYellow;
+    animation-duration: 1s;
+}
