@@ -121,7 +121,7 @@ function gameFlow(){
 }
 
 gameFlow()
-createBoardGenius()
+
     const botao = document.querySelectorAll('.button')
 
 
