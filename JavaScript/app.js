@@ -1,4 +1,5 @@
-function createBoardGenius(input) {   
+function createBoardGenius(input) {
+   
     const main = document.querySelector("main");
     const conteiner = document.createElement('section');
     conteiner.classList.add('board');
@@ -6,16 +7,16 @@ function createBoardGenius(input) {
     conteiner.innerHTML = `
     <div>
         <div class='button-game'>
-            <div class='button--green'></div>
-            <div class='button--yellow'></div>
-            <div class='button--red'></div>
-            <div class='button--blue'></div>
+            <div class='button button--Green'></div>
+            <div class='button button--Yellow'></div>
+            <div class='button button--Red'></div>
+            <div class='button button--Blue'></div>
         </div>
         <img class='base__game--img'src ="./assets/imgs/pingo-i--logo.svg" alt="jogo Genius">
         <div class='player'>${input}</div> 
     </div>
-    
     `
+    
     main.appendChild(conteiner);
 }
 
@@ -39,6 +40,7 @@ function createModal() {
     `
 
     main.appendChild(popUp);
+    btnJogar()
 }
 
 function createRulesCard (){
@@ -90,8 +92,8 @@ function btnJogar() {
 
     } else {
         popUp.classList.add('hide');        
-        goToRulesCard()
-        
+        createRulesCard()
+        btnAvancar()
     }
 });
 }
@@ -107,31 +109,26 @@ function btnAvancar() {
         const divContainer = document.querySelector('.containerRules');
         divContainer.classList.add('hide');
         createBoardGenius(input);
+        ClickComAnimação()
     })
 }
 
-function goToRulesCard(){
-    createRulesCard()
-    btnAvancar()
-}
+function ClickComAnimação(){
+    const botoes = document.querySelectorAll('.button')
     
-function gameFlow(){
-    createModal()
-    btnJogar()
+        botoes.forEach((botao) => {
+            botao.addEventListener('click', (event) => {
+                const corAtual = botao.classList[1].split('-')[2]
+                console.log(corAtual)
+                botao.classList.add(`animation${corAtual}`)
+                setTimeout(() => {
+                    botao.classList.remove(`animation${corAtual}`)
+                }, 2000)
+            })
+        })
 }
 
-gameFlow()
-
-    const botao = document.querySelectorAll('.button')
-
-
-    botao[0].addEventListener('click', (event) => {
-        console.log('teste')
-        botao[0].classList.add('animationGreen')
-        setTimeout(() => {
-            botao[0].classList.remove('animationGreen')
-        }, 2000)
-    })
+createModal()
 
 let jogasPc = [];
 let jogadasPlayer = [];
