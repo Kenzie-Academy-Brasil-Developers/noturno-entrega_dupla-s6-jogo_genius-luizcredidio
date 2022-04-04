@@ -1,0 +1,258 @@
+:root {
+    --main-bg-color: conic-gradient(#000, #414142, #000, #414142, #000);
+    --modal-bg-gradient: radial-gradient(circle, rgb(132, 132, 132), #414142, #000);
+    --modal-boxshadow: 0 3px 10px rgba(255, 255, 255, 0.79);
+    --hover--color: rgba(55, 73, 106, 0.583);
+    
+    --btn--color: rgba(103, 94, 94, 0.603);
+    --btn-color--click: #222222;
+    --input--color: rgba(234, 227, 227, 0.249);
+    --placeholder--color: white;
+
+    --color-green: #00b100;
+    --color-red: #B20000;
+    --color-yellow: #b2B000;
+    --color-blue: #0000b2;
+}
+ @font-face {
+     font-family: pixelFont;
+     src: url(/assets/font/cayetano.regular.ttf);
+ }
+
+* {
+     font-family: pixelFont;
+}
+
+body {
+    overflow: hidden;
+    position: absolute;
+}
+
+main {
+    background-image: var(--main-bg-color);
+    
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {    
+    background-image: var(--modal-bg-gradient);
+    box-shadow: var(--modal-boxshadow);  
+
+    max-width: 500px;
+    height: 100%;
+    width: 100%; 
+
+    position: absolute;
+    
+}
+.conteiner-modal {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+    position: relative;
+    top: 33%;
+}
+
+.divLogo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;    
+}
+
+.logo {
+    width: 420px;
+}
+
+.logo--detalhe {
+    position: relative; 
+    left: 210px;
+
+    width: 68px;
+
+    padding-bottom: 10px;
+}
+
+.inputsPlay, input {
+    border-radius: 15px;
+
+    text-align: center;
+    font-size: 25px;
+
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.btn--edit {
+    border: none;
+    cursor: pointer;
+    
+    color: var(--placeholder--color);
+    background-color: var(--btn--color);
+    box-shadow: 0 9px #999;
+
+    padding: 15px 125px;
+}
+
+input {
+    background-color: var(--input--color);
+    border: 3px solid white;
+
+}
+
+input::placeholder {       
+    color: var(--placeholder--color);
+}
+
+input:hover {
+    content: 'Vamos digitar?';
+    background-color: var(--hover--color);
+    
+}
+
+.btn--edit:active {
+  background-color: var(--btn-color--click);
+  box-shadow: var(--modal-boxshadow); 
+
+  transform: translateY(4px);
+}
+
+.hide {
+    display: none;
+}
+
+.board {
+    position: absolute;
+}
+
+.base__game--img {
+    position: absolute;
+    left: -90px;
+    bottom: -130px;
+
+    width: 330px;
+}
+
+.player {
+    position: relative;
+    left: 12px;
+    bottom: 80px;
+    
+    color: var(--color-red);
+
+    font-size: 50px;   
+}
+
+.button-game {
+    position: absolute;
+}
+
+.button--green {
+    position: relative;
+    left: -296px;
+    bottom: 398px;
+
+    width: 360px;
+    height: 397px;
+
+    background-color: var(--color-green);
+
+    border-radius: 150% 0 0 0;
+
+}
+
+.button--yellow {
+    position: relative;  
+    bottom: 795px;
+    left: 87px;
+
+    width: 360px;
+    height: 397px;
+
+    background-color: var(--color-yellow);
+    border-radius: 0 150% 0  0;
+}
+
+.button--red {
+    position: relative;  
+    bottom: 753px;
+    right: 296px;
+
+    width: 360px;
+    height: 397px;
+
+    background-color: var(--color-red);
+    border-radius: 0 0 0  150%;
+}
+
+.button--blue {
+    position: relative;  
+    bottom: 1150px;
+    left: 88px;
+
+    width: 360px;
+    height: 397px;
+
+    background-color: var(--color-blue);
+    border-radius: 0 0 150% 0;
+}
+
+/**************************Animação Cores*********************************/
+@keyframes animationGreen{
+    50%{
+        background-color: #00CC00;
+        transform: scale(1.05);
+        box-shadow: 0px 5px 50px 5px rgba(255, 255, 255, 0.8); 
+    }
+}
+
+@keyframes animationYellow{
+    50%{
+        background-color: #CCC000;
+        transform: scale(1.05);
+        box-shadow: 0px 5px 50px 5px rgba(255, 255, 255, 0.8); 
+    }
+}
+
+@keyframes animationBlue{
+    50%{
+        background-color: #0000CC;
+        transform: scale(1.05);
+        box-shadow: 0px 5px 50px 5px rgba(255, 255, 255, 0.8); 
+    }
+}
+
+@keyframes animationRed{
+    50%{
+        background-color: #CC0000;
+        transform: scale(1.05);
+        box-shadow: 0px 5px 50px 5px rgba(255, 255, 255, 0.8); 
+    }
+}
+
+
+.animationRed{
+    animation-name: animacaoRed;
+    animation-duration: 1s;
+}
+
+.animationBlue{
+    animation-name: animacaoBlue;
+    animation-duration: 1s;
+}
+
+.animationGreen{
+    animation-name: animationGreen;
+    animation-duration: 2s;
+}
+
+.animationYellow{
+    animation-name: animacaoYellow;
+    animation-duration: 1s;
+}
