@@ -109,11 +109,11 @@ function btnAvancar() {
         const divContainer = document.querySelector('.containerRules');
         divContainer.classList.add('hide');
         createBoardGenius(input);
-        ClickComAnimação()
+        clickComAnimacao()
     })
 }
 
-function ClickComAnimação(){
+function clickComAnimacao(){
     const botoes = document.querySelectorAll('.button')
     
         botoes.forEach((botao) => {
