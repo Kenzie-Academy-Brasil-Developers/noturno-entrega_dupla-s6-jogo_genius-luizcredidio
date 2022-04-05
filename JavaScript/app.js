@@ -85,10 +85,8 @@ function btnJogar() {
     const popUp = document.querySelector('.popup');
     const input = document.querySelector("#nomePlayer").value;
 
-    // console.log(conteinerBoard);
     if (input === '') {
         console.log('erro');
-        console.log(input);
 
     } else {
         popUp.classList.add('hide');        
@@ -109,32 +107,121 @@ function btnAvancar() {
         const divContainer = document.querySelector('.containerRules');
         divContainer.classList.add('hide');
         createBoardGenius(input);
-        clickComAnimacao()
+        iniciarJogo();
     })
 }
 
 function clickComAnimacao(){
     const botoes = document.querySelectorAll('.button')
     
-        botoes.forEach((botao) => {
-            botao.addEventListener('click', (event) => {
-                const corAtual = botao.classList[1].split('-')[2]
-                console.log(corAtual)
-                botao.classList.add(`animation${corAtual}`)
-                setTimeout(() => {
-                    botao.classList.remove(`animation${corAtual}`)
-                }, 2000)
-            })
+    botoes.forEach((botao) => {
+        botao.addEventListener('click', (event) => {
+            const corAtual = botao.classList[1].split('-')[2]
+            
+            botao.classList.add(`animation${corAtual}`)
+            setTimeout(() => {
+                botao.classList.remove(`animation${corAtual}`)
+            }, 500)
         })
+    })
 }
 
 createModal()
 
-let jogasPc = [];
+let jogadasPc = [];
 let jogadasPlayer = [];
+
 let contador = 0;
 
 
 function randomNumbers(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
+}
+
+function animacao(button, cor) {
+    button.classList.add(`animation${cor}`);
+    setTimeout(() => {
+        button.classList.remove(`animation${cor}`);
+    }, 1000)
+}
+
+function animarBtn(botao, cor) {
+    setTimeout(() => {
+        animacao(botao, cor)
+    }, 1000)
+}
+
+function gerarAnimacaoBotao() {
+    const numeroRandom = randomNumbers(0, 4);
+
+    const botao = document.querySelectorAll('.button')[numeroRandom];
+    const corBotao = botao.classList[1].split('-')[2];
+
+    jogadasPc.push(botao)
+    console.log(botao)
+
+    let countRepet = 0;
+
+    const intervaloAnimacao = setInterval(() => {
+        if (jogadasPc.length > 0) {
+
+            setTimeout(() => {
+                if (countRepet < jogadasPc.length) {
+                    const botaoAtual = jogadasPc[countRepet];
+                    const corAtual = botaoAtual.classList[1].split('-')[2];
+
+                    animarBtn(botaoAtual, corAtual);
+                    countRepet++
+                } else {
+                    countRepet = 0;
+                    clearInterval(intervaloAnimacao);
+                }
+            }, 1000)
+        } else {
+            animarBtn(botao, corBotao);
+            clearInterval(intervaloAnimacao);
+
+        }
+    }, 1000)
+}
+
+function adicionarEventoBotoes() {
+    const botoes = document.querySelectorAll('.button');
+    for (let i = 0; i < botoes.length; i++) {
+        botoes[i].addEventListener('click', (event) => {
+            const botaoClicado = event.target;
+            console.log(botaoClicado)
+            
+            const corBotaoClicado = event.target.classList[1].split('-')[2];
+
+            jogadasPlayer.push(botaoClicado);
+
+            if (perdeu()) {
+                console.log('perdeu')
+            } else if (jogadasPlayer.length === jogadasPc.length) {
+                jogadasPlayer = [];
+                gerarAnimacaoBotao()
+                console.log('tudo certo');
+            }
+        })
+    }
+}
+
+function perdeu() {
+    console.log(jogadasPc)
+    console.log(jogadasPlayer)
+   
+    for (let i = 0; i < jogadasPlayer.length; i++) {
+        const botao = jogadasPc[i];
+        if (jogadasPlayer[i] !== botao) {
+            return true;
+        }        
+    }
+    return false;
+}
+
+function iniciarJogo() {
+    clickComAnimacao();
+    gerarAnimacaoBotao();
+    adicionarEventoBotoes();
 }
