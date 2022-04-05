@@ -1,3 +1,10 @@
+let jogasPc = [];
+let jogadasPlayer = [];
+let contador = 0;
+
+
+
+
 function createBoardGenius(input) {
    
     const main = document.querySelector("main");
@@ -18,6 +25,9 @@ function createBoardGenius(input) {
     `
     
     main.appendChild(conteiner);
+    setTimeout(() => {
+        randomC()
+    }, 1000)
 }
 
 function createModal() {
@@ -110,6 +120,7 @@ function btnAvancar() {
         divContainer.classList.add('hide');
         createBoardGenius(input);
         ClickComAnimação()
+        
     })
 }
 
@@ -119,22 +130,43 @@ function ClickComAnimação(){
         botoes.forEach((botao) => {
             botao.addEventListener('click', (event) => {
                 const corAtual = botao.classList[1].split('-')[2]
-                console.log(corAtual)
+                jogadasPlayer.push(corAtual)
+                console.log(corAtual, jogadasPlayer)
                 botao.classList.add(`animation${corAtual}`)
                 setTimeout(() => {
                     botao.classList.remove(`animation${corAtual}`)
                 }, 2000)
+
+                setTimeout(() => {
+                    randomC()
+                }, 1000)
+
             })
         })
 }
 
 createModal()
+// createBoardGenius()
+// ClickComAnimação()
 
-let jogasPc = [];
-let jogadasPlayer = [];
-let contador = 0;
+
 
 
 function randomNumbers(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
 }
+
+function randomC(){
+    const randomN = randomNumbers(1, 5)
+    const botoes = document.querySelectorAll('.button')
+    const corRandom = botoes[randomN].classList[1].split('-')[2]
+
+    botoes[randomN].classList.add(`animation${corRandom}`)
+    setTimeout(() => {
+        botoes[randomN].classList.remove(`animation${corRandom}`)
+    }, 2000)
+    console.log(botoes[randomN], corRandom)
+    jogasPc.push(corRandom)
+    console.log(jogasPc)
+}
+
