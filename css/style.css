@@ -116,7 +116,7 @@ input:hover {
     
 }
 
-.btn--edit:active {
+.btn--edit:active, .btn--edit-color:active {
   background-color: var(--btn-color--click);
   box-shadow: var(--modal-boxshadow); 
 

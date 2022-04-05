@@ -1,5 +1,7 @@
+let inputName = ""
+
 function createBoardGenius(input) {
-   
+    inputName = input
     const main = document.querySelector("main");
     const conteiner = document.createElement('section');
     conteiner.classList.add('board');
@@ -7,10 +9,10 @@ function createBoardGenius(input) {
     conteiner.innerHTML = `
     <div>
         <div class='button-game'>
-            <div class='button button--Green'></div>
-            <div class='button button--Yellow'></div>
-            <div class='button button--Red'></div>
-            <div class='button button--Blue'></div>
+            <div class='button button--Green btn--edit-color'></div>
+            <div class='button button--Yellow btn--edit-color'></div>
+            <div class='button button--Red btn--edit-color'></div>
+            <div class='button button--Blue btn--edit-color'></div>
         </div>
         <img class='base__game--img'src ="./assets/imgs/pingo-i--logo.svg" alt="jogo Genius">
         <div class='player'>${input}</div> 
@@ -111,20 +113,20 @@ function btnAvancar() {
     })
 }
 
-function clickComAnimacao(){
-    const botoes = document.querySelectorAll('.button')
+// function clickComAnimacao(){
+//     const botoes = document.querySelectorAll('.button')
     
-    botoes.forEach((botao) => {
-        botao.addEventListener('click', (event) => {
-            const corAtual = botao.classList[1].split('-')[2]
+//     botoes.forEach((botao) => {
+//         botao.addEventListener('click', (event) => {
+//             const corAtual = botao.classList[1].split('-')[2]
             
-            botao.classList.add(`animation${corAtual}`)
-            setTimeout(() => {
-                botao.classList.remove(`animation${corAtual}`)
-            }, 500)
-        })
-    })
-}
+//             botao.classList.add(`animation${corAtual}`)
+//             setTimeout(() => {
+//                 botao.classList.remove(`animation${corAtual}`)
+//             }, 500)
+//         })
+//     })
+// }
 
 createModal()
 let inputInicial
@@ -142,7 +144,7 @@ function animacao(button, cor) {
     button.classList.add(`animation${cor}`);
     setTimeout(() => {
         button.classList.remove(`animation${cor}`);
-    }, 1000)
+    }, 500)
 }
 
 function animarBtn(botao, cor) {
@@ -176,7 +178,7 @@ function gerarAnimacaoBotao() {
                     countRepet = 0;
                     clearInterval(intervaloAnimacao);
                 }
-            }, 1000)
+            }, 500)
         } else {
             animarBtn(botao, corBotao);
             clearInterval(intervaloAnimacao);
@@ -186,15 +188,18 @@ function gerarAnimacaoBotao() {
 }
 
 function adicionarEventoBotoes() {
+    let contador = 0
     const botoes = document.querySelectorAll('.button');
     for (let i = 0; i < botoes.length; i++) {
         botoes[i].addEventListener('click', (event) => {
             const botaoClicado = event.target;
-            
-            
             const corBotaoClicado = event.target.classList[1].split('-')[2];
-
             jogadasPlayer.push(botaoClicado);
+            
+            
+            
+
+            
 
             if (perdeu()) {
                 const boardGenius = document.querySelector('.board')
@@ -206,7 +211,7 @@ function adicionarEventoBotoes() {
                 popUp.innerHTML = `
                         <div    class="conteiner-final"> 
                         <h2     class="TituloGameOver">Game Over</h2>
-                        <h2     class="rodadas">Rodadas ${jogadasPlayer.length}</h2>
+                        <h2     class="rodadas">Rodadas ${contador}</h2>
                         <button id="JogarNovamente" class="inputsPlay btn--edit">Jogar Novamente</button>
                         
                         </div>
@@ -214,16 +219,20 @@ function adicionarEventoBotoes() {
                 main.appendChild(popUp)
                 const buttonJogarNovamente = document.querySelector("#JogarNovamente");
                 buttonJogarNovamente.addEventListener('click', () => {
-                    const containerFim = document.querySelector('.popup-final')
-                    boardGenius.classList.remove('hide')
-                    popUp.classList.add("hide")
+                    main.innerHTML = ""
+                    createBoardGenius(inputName)
+                    // const containerFim = document.querySelector('.popup-final')
+                    // boardGenius.classList.remove('hide')
+                    // popUp.classList.add("hide")
                     
                     iniciarJogo()
+                    contador = 0
                 })
             } else if (jogadasPlayer.length === jogadasPc.length) {
                 jogadasPlayer = [];
                 gerarAnimacaoBotao()
                 console.log('tudo certo');
+                contador++
             }
         })
     }
@@ -245,7 +254,7 @@ function perdeu() {
 function iniciarJogo() {
     jogadasPlayer = [];
     jogadasPc = []
-    clickComAnimacao();
+    // clickComAnimacao();
     gerarAnimacaoBotao();
     adicionarEventoBotoes();
 }
