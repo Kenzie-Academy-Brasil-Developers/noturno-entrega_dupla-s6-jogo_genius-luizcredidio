@@ -84,7 +84,7 @@ function btnJogar() {
         
     const popUp = document.querySelector('.popup');
     const input = document.querySelector("#nomePlayer").value;
-
+    inputInicial = input
     if (input === '') {
         console.log('erro');
 
@@ -127,10 +127,10 @@ function clickComAnimacao(){
 }
 
 createModal()
-
+let inputInicial
 let jogadasPc = [];
 let jogadasPlayer = [];
-
+const popUp = document.createElement('section');
 let contador = 0;
 
 
@@ -158,7 +158,7 @@ function gerarAnimacaoBotao() {
     const corBotao = botao.classList[1].split('-')[2];
 
     jogadasPc.push(botao)
-    console.log(botao)
+    
 
     let countRepet = 0;
 
@@ -190,14 +190,36 @@ function adicionarEventoBotoes() {
     for (let i = 0; i < botoes.length; i++) {
         botoes[i].addEventListener('click', (event) => {
             const botaoClicado = event.target;
-            console.log(botaoClicado)
+            
             
             const corBotaoClicado = event.target.classList[1].split('-')[2];
 
             jogadasPlayer.push(botaoClicado);
 
             if (perdeu()) {
-                console.log('perdeu')
+                const boardGenius = document.querySelector('.board')
+                boardGenius.classList.add('hide')
+                const main = document.querySelector('main');
+                popUp.classList.add('popup-final');
+                popUp.classList.remove('hide')
+                
+                popUp.innerHTML = `
+                        <div    class="conteiner-final"> 
+                        <h2     class="TituloGameOver">Game Over</h2>
+                        <h2     class="rodadas">Rodadas ${jogadasPlayer.length}</h2>
+                        <button id="JogarNovamente" class="inputsPlay btn--edit">Jogar Novamente</button>
+                        
+                        </div>
+                    `
+                main.appendChild(popUp)
+                const buttonJogarNovamente = document.querySelector("#JogarNovamente");
+                buttonJogarNovamente.addEventListener('click', () => {
+                    const containerFim = document.querySelector('.popup-final')
+                    boardGenius.classList.remove('hide')
+                    popUp.classList.add("hide")
+                    
+                    iniciarJogo()
+                })
             } else if (jogadasPlayer.length === jogadasPc.length) {
                 jogadasPlayer = [];
                 gerarAnimacaoBotao()
@@ -221,6 +243,8 @@ function perdeu() {
 }
 
 function iniciarJogo() {
+    jogadasPlayer = [];
+    jogadasPc = []
     clickComAnimacao();
     gerarAnimacaoBotao();
     adicionarEventoBotoes();
