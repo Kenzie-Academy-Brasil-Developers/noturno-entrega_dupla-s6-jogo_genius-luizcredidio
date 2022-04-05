@@ -107,7 +107,6 @@ function btnAvancar() {
         const divContainer = document.querySelector('.containerRules');
         divContainer.classList.add('hide');
         createBoardGenius(input);
-        // clickComAnimacao();
         iniciarJogo();
     })
 }
