@@ -109,32 +109,116 @@ function btnAvancar() {
         const divContainer = document.querySelector('.containerRules');
         divContainer.classList.add('hide');
         createBoardGenius(input);
-        ClickComAnimação()
+        clickComAnimacao()
+        iniciarJogo()
     })
 }
 
-function ClickComAnimação(){
+function clickComAnimacao(){
     const botoes = document.querySelectorAll('.button')
     
-        botoes.forEach((botao) => {
-            botao.addEventListener('click', (event) => {
-                const corAtual = botao.classList[1].split('-')[2]
-                console.log(corAtual)
-                botao.classList.add(`animation${corAtual}`)
-                setTimeout(() => {
-                    botao.classList.remove(`animation${corAtual}`)
-                }, 2000)
-            })
+    botoes.forEach((botao) => {
+        botao.addEventListener('click', (event) => {
+            const corAtual = botao.classList[1].split('-')[2]
+            
+            botao.classList.add(`animation${corAtual}`)
+            setTimeout(() => {
+                botao.classList.remove(`animation${corAtual}`)
+            }, 2000)
         })
+    })
 }
 
 createModal()
 
-let jogasPc = [];
+let jogadasPc = [];
 let jogadasPlayer = [];
 let contador = 0;
 
 
 function randomNumbers(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
+}
+
+console.log(randomNumbers(0,4))
+
+function animacao(button, cor) {
+    button.classList.add(`animation${cor}`);
+    setTimeout(() => {
+        button.classList.remove(`animation${cor}`);
+    }, 1000)
+}
+
+function animarBtn(botao, cor) {
+    setTimeout(() => {
+        animacao(botao, cor)
+    }, 2000)
+}
+
+function gerarAnimacaoNoBtn() {
+    const numeroRadom = randomNumbers(0, 4);
+
+    const botao = document.querySelectorAll('.button')[numeroRadom];
+    const corBtn = botao.classList[1].split('-')[2];
+
+    jogadasPc.push(botao);
+    
+    let countadorRepet = 0;
+
+    const intervaloAnimacao = setInterval(() => {
+        if (jogadasPc.length > 0) {
+
+            setTimeout(() => {
+                if (countadorRepet < jogadasPc.length) {
+                    const botaoAtual = jogadasPc[countadorRepet];
+                    const corAtual = botaoAtual.classList[1].split('-')[2];
+
+                    animarBtn(botaoAtual, corAtual);
+                    countadorRepet++; 
+                } else {
+                    countadorRepet = 0;
+                    clearInterval(intervaloAnimacao);
+                   
+                }
+            }, 1000)
+        } else {
+            animarBtn(botao, corBtn);
+            clearInterval(intervaloAnimacao)
+        }
+    })
+
+}
+
+function adicionarEventosBotoes() {
+    const botoes = document.querySelectorAll('.button')
+    for (let index = 0; index < botoes.length; index++) {
+        botoes[index].addEventListener('click', (event) => {            
+            const botaoClicado = event.target;
+            const corBtnClicado = event.target.classList[1].split('-')[2];
+            jogadasPlayer.push[botaoClicado];
+
+            if (perdeu()) {
+                console.log('perdeu');
+            } else if (jogadasPlayer.length === jogadasPc.length) {
+                jogadasPlayer = []
+                gerarAnimacaoNoBtn();
+                console.log('tudo certo')
+            }
+        });
+    }
+}
+
+function perdeu() {
+    for (let index = 0; index < jogadasPlayer.length; index++) {
+        const corBtn = jogadasPc[index].classList[1].split('-')[2];
+        if (jogadasPlayer[index] !== corBtn) {
+            return true
+        }
+    }
+    return false
+}
+
+function iniciarJogo() {
+    gerarAnimacaoNoBtn()
+    adicionarEventosBotoes()
 }
