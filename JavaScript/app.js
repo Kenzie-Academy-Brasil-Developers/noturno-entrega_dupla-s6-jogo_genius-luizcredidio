@@ -43,8 +43,8 @@ function createModal() {
     popUp.innerHTML = `
         <div class="conteiner-modal">
             <div class="divLogo">
-                <img src="/assets/imgs/pingo-i--logo.svg" class="logo--detalhe">
-                <img src="/assets/imgs/logo.svg" alt="logo escrito genius" class="logo">
+                <img src="./assets/imgs/pingo-i--logo.svg" class="logo--detalhe">
+                <img src="./assets/imgs/logo.svg" alt="logo escrito genius" class="logo">
             </div> 
             <form class="inputsPlay">
                 <input type="text" name="nome" id="nomePlayer" maxlength="5" placeholder="Qual é seu nome?">
