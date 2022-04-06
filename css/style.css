@@ -220,7 +220,7 @@ input:hover {
     z-index: 1;
 
     opacity: 0%;
-    transition: 5s;
+    
 }
 
 .notification--active {

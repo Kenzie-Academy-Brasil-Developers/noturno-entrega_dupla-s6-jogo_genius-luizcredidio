@@ -1,5 +1,17 @@
 let inputName = ""
 
+let inputInicial
+let jogadasPc = [];
+let jogadasPlayer = [];
+let contador = 0;
+
+const main = document.querySelector("main");
+const span = document.createElement("span");
+const popUp = document.createElement('section');
+
+main.appendChild(span);
+
+
 function createBoardGenius(input) {
     inputName = input
     const main = document.querySelector("main");
@@ -18,7 +30,7 @@ function createBoardGenius(input) {
         <div class='player'>${input}</div> 
     </div>
     `
-    
+
     main.appendChild(conteiner);
 }
 
@@ -27,7 +39,7 @@ function createModal() {
 
     const popUp = document.createElement('section');
     popUp.classList.add('popup');
-    
+
     popUp.innerHTML = `
         <div class="conteiner-modal">
             <div class="divLogo">
@@ -40,14 +52,13 @@ function createModal() {
             </form>
         </div>
     `
-
     main.appendChild(popUp);
     btnJogar()
 }
 
-function createRulesCard (){
+function createRulesCard() {
     const main = document.querySelector('main');
-    
+
     let divContainer = document.createElement("div")
     let divCard = document.createElement("div")
     let boaSorte = document.createElement("h2")
@@ -56,7 +67,7 @@ function createRulesCard (){
     let btn = document.createElement('button')
     let lbl = document.createTextNode('Avançar')
 
-    btn.setAttribute("type",'button')
+    btn.setAttribute("type", 'button')
     btn.classList.add('cr_btn--avançar')
     boaSorte.classList.add('cr_boaSorte')
     divContainer.classList.add('containerRules')
@@ -75,33 +86,34 @@ function createRulesCard (){
     divContainer.appendChild(divCard)
     divContainer.appendChild(btn)
     main.appendChild(divContainer)
-    
+
 }
 
 function btnJogar() {
     const button = document.querySelector("#btnPlayer");
 
     button.addEventListener('click', (event) => {
-    event.preventDefault();
-        
-    const popUp = document.querySelector('.popup');
-    const input = document.querySelector("#nomePlayer").value;
-    inputInicial = input
-    if (input === '') {
-        console.log('erro');
+        event.preventDefault();
 
-    } else {
-        popUp.classList.add('hide');        
-        createRulesCard()
-        btnAvancar()
-    }
-});
+        const popUp = document.querySelector('.popup');
+        const input = document.querySelector("#nomePlayer").value;
+        inputInicial = input
+        if (input === '') {
+            mensagem.erroName()
+            mensagem.exit()
+
+        } else {
+            popUp.classList.add('hide');
+            createRulesCard()
+            mensagem.exitNow()
+            btnAvancar()
+        }
+    });
 }
 
 function btnAvancar() {
     const buttonAvn = document.querySelector(".cr_btn--avançar");
     const input = document.querySelector("#nomePlayer").value;
-   
 
     buttonAvn.addEventListener('click', (event) => {
         event.preventDefault();
@@ -112,29 +124,6 @@ function btnAvancar() {
         iniciarJogo();
     })
 }
-
-// function clickComAnimacao(){
-//     const botoes = document.querySelectorAll('.button')
-    
-//     botoes.forEach((botao) => {
-//         botao.addEventListener('click', (event) => {
-//             const corAtual = botao.classList[1].split('-')[2]
-            
-//             botao.classList.add(`animation${corAtual}`)
-//             setTimeout(() => {
-//                 botao.classList.remove(`animation${corAtual}`)
-//             }, 500)
-//         })
-//     })
-// }
-
-createModal()
-let inputInicial
-let jogadasPc = [];
-let jogadasPlayer = [];
-const popUp = document.createElement('section');
-let contador = 0;
-
 
 function randomNumbers(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
@@ -160,8 +149,8 @@ function gerarAnimacaoBotao() {
     const corBotao = botao.classList[1].split('-')[2];
 
     jogadasPc.push(botao)
-    
-
+    mensagem.pc()
+    mensagem.exit()
     let countRepet = 0;
 
     const intervaloAnimacao = setInterval(() => {
@@ -169,92 +158,141 @@ function gerarAnimacaoBotao() {
 
             setTimeout(() => {
                 if (countRepet < jogadasPc.length) {
+
                     const botaoAtual = jogadasPc[countRepet];
                     const corAtual = botaoAtual.classList[1].split('-')[2];
 
                     animarBtn(botaoAtual, corAtual);
+                  
                     countRepet++
                 } else {
+                    
+
                     countRepet = 0;
                     clearInterval(intervaloAnimacao);
                 }
             }, 500)
+            mensagem.turn()
+
         } else {
+            mensagem.turn()
+
             animarBtn(botao, corBotao);
             clearInterval(intervaloAnimacao);
-
         }
     }, 1000)
+
 }
 
 function adicionarEventoBotoes() {
     let contador = 0
+
     const botoes = document.querySelectorAll('.button');
     for (let i = 0; i < botoes.length; i++) {
         botoes[i].addEventListener('click', (event) => {
             const botaoClicado = event.target;
             const corBotaoClicado = event.target.classList[1].split('-')[2];
             jogadasPlayer.push(botaoClicado);
-            
-            
-            
-
-            
 
             if (perdeu()) {
-                const boardGenius = document.querySelector('.board')
-                boardGenius.classList.add('hide')
-                const main = document.querySelector('main');
-                popUp.classList.add('popup-final');
-                popUp.classList.remove('hide')
-                
-                popUp.innerHTML = `
-                        <div    class="conteiner-final"> 
-                        <h2     class="TituloGameOver">Game Over</h2>
-                        <h2     class="rodadas">Rodadas ${contador}</h2>
-                        <button id="JogarNovamente" class="inputsPlay btn--edit">Jogar Novamente</button>
-                        
-                        </div>
-                    `
-                main.appendChild(popUp)
-                const buttonJogarNovamente = document.querySelector("#JogarNovamente");
-                buttonJogarNovamente.addEventListener('click', () => {
-                    main.innerHTML = ""
-                    createBoardGenius(inputName)
-                    // const containerFim = document.querySelector('.popup-final')
-                    // boardGenius.classList.remove('hide')
-                    // popUp.classList.add("hide")
-                    
-                    iniciarJogo()
-                    contador = 0
-                })
+                erro()
+
             } else if (jogadasPlayer.length === jogadasPc.length) {
                 jogadasPlayer = [];
                 gerarAnimacaoBotao()
-                console.log('tudo certo');
                 contador++
             }
+            mensagem.pc()
         })
     }
 }
 
+function erro() {
+    const boardGenius = document.querySelector('.board')
+    boardGenius.classList.add('hide')
+    const main = document.querySelector('main');
+    popUp.classList.add('popup-final');
+    popUp.classList.remove('hide')
+
+    popUp.innerHTML = `
+            <div    class="conteiner-final"> 
+            <h2     class="TituloGameOver">Game Over</h2>
+            <h2     class="rodadas">Rodadas ${contador}</h2>
+            <button id="JogarNovamente" class="inputsPlay btn--edit">Jogar Novamente</button>
+            
+            </div>
+        `
+    main.appendChild(popUp)
+    btnJogarNovamente()
+}
+
+function btnJogarNovamente() {
+    const buttonJogarNovamente = document.querySelector("#JogarNovamente");
+    buttonJogarNovamente.addEventListener('click', () => {
+        main.innerHTML = ""
+        createBoardGenius(inputName);
+
+        iniciarJogo()
+        contador = 0
+    })
+}
+
 function perdeu() {
-    console.log(jogadasPc)
-    console.log(jogadasPlayer)
-   
     for (let i = 0; i < jogadasPlayer.length; i++) {
         const botao = jogadasPc[i];
         if (jogadasPlayer[i] !== botao) {
             return true;
-        }        
+        }
     }
     return false;
 }
 
+const mensagem = {
+    textos: [
+        'Seu turno',
+        'Digite um nome',
+        'Genius jogando... '
+    ],
+
+    exit: function () {
+        setTimeout(() => span.classList.remove('notification--disable'), 1000);
+
+    },
+    exit2: function () {
+        setTimeout(() => span.classList.remove('notification--active'), 500);
+
+    },
+
+    exitNow: function () {
+        setTimeout(() => span.classList.remove('notification--disable'), 50);
+
+    },
+
+    erroName: function () {
+        span.textContent = '';
+        span.textContent = `${this.textos[1]}`;
+        span.classList.add('notification', 'notification--disable');
+    },
+
+    turn: function () {
+        span.textContent = '';
+        span.textContent = `${this.textos[0]}`;
+        span.classList.add('notification', 'notification--active');
+    },
+
+    pc: function () {
+        span.textContent = '';
+        span.textContent = `${this.textos[2]}`;
+        span.classList.add('notification', 'notification--disable') ;
+    }
+}
+
+createModal()
+
 function iniciarJogo() {
     jogadasPlayer = [];
     jogadasPc = []
-    // clickComAnimacao();
     gerarAnimacaoBotao();
     adicionarEventoBotoes();
+
 }
