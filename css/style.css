@@ -116,7 +116,7 @@ input:hover {
     
 }
 
-.btn--edit:active {
+.btn--edit:active, .btn--edit-color:active {
   background-color: var(--btn-color--click);
   box-shadow: var(--modal-boxshadow); 
 
@@ -153,7 +153,7 @@ input:hover {
     position: absolute;
 }
 
-.button--green {
+.button--Green {
     position: relative;
     left: -296px;
     bottom: 398px;
@@ -167,7 +167,7 @@ input:hover {
 
 }
 
-.button--yellow {
+.button--Yellow {
     position: relative;  
     bottom: 795px;
     left: 87px;
@@ -179,7 +179,7 @@ input:hover {
     border-radius: 0 150% 0  0;
 }
 
-.button--red {
+.button--Red {
     position: relative;  
     bottom: 753px;
     right: 296px;
@@ -191,7 +191,7 @@ input:hover {
     border-radius: 0 0 0  150%;
 }
 
-.button--blue {
+.button--Blue {
     position: relative;  
     bottom: 1150px;
     left: 88px;
@@ -203,6 +203,101 @@ input:hover {
     border-radius: 0 0 150% 0;
 }
 
+.notification {
+    position: relative;
+    left: 7px;
+    top: -5px;
+    
+    font-size: 35px;
+    color: white;
+    
+    padding: 20px;
+    
+    border-radius: 20px;
+    
+    box-shadow: var(--modal-boxshadow);
+    
+    z-index: 1;
+
+    opacity: 0%;
+    
+}
+
+.notification--active {
+    background-color: var(--color-green);
+    opacity: 100%;
+
+}
+
+.notification--disable {
+    background-color: var(--color-red);
+    opacity: 100%;
+}
+ 
+.containerRules{
+
+    background-image: var(--modal-bg-gradient);
+    box-shadow: var(--modal-boxshadow);  
+
+    max-width: 500px;
+    height: 100%;
+    width: 100%; 
+    color: white;
+    position: absolute;
+    
+}
+.cr_rulesCard{
+
+    background-color: var(--modal-bg-gradient);
+    text-align: center;
+    margin: 25px;
+    background-color: --modal-bg-gradient;
+    width: 90%;
+    height: 350px;
+    
+}
+
+.cr_rulesText {
+
+    margin: 5px;
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.cr_titleRules{
+
+    margin: 10px;
+    font-size: 50px;
+}
+
+.cr_boaSorte {
+
+    background-color: --modal-bg-gradient;
+    margin: 20px;
+    font-size: 45px;
+
+}
+
+.cr_btn--avançar{
+
+    color: white;
+    background-color: rgba(103, 94, 94, 0.603);
+    box-shadow: 0 9px #999;
+    border-radius: 15px;
+    margin: 15%;
+    width: 70%;
+    font-size: 50px;
+    
+}
+
+.cr_btn--avançar:active{
+
+    background-color: #222222;
+    box-shadow: var(--modal-boxshadow); 
+    transform: translateY(4px);
+
+}
 /**************************Animação Cores*********************************/
 @keyframes animationGreen{
     50%{
@@ -238,21 +333,57 @@ input:hover {
 
 
 .animationRed{
-    animation-name: animacaoRed;
+    animation-name: animationRed;
     animation-duration: 1s;
 }
 
 .animationBlue{
-    animation-name: animacaoBlue;
+    animation-name: animationBlue;
     animation-duration: 1s;
 }
 
 .animationGreen{
     animation-name: animationGreen;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
 
 .animationYellow{
-    animation-name: animacaoYellow;
+    animation-name: animationYellow;
     animation-duration: 1s;
+}
+
+.popup-final {    
+    background-image: var(--modal-bg-gradient);
+    box-shadow: var(--modal-boxshadow);  
+
+    max-width: 500px;
+    height: 100%;
+    width: 100%; 
+
+    position: absolute;
+    
+}
+
+
+.conteiner-final {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+    position: relative;
+    top: 33%;
+}
+
+
+.TituloGameOver{
+    margin: 10px;
+    font-size: 50px;
+}
+
+.rodadas{
+    color: #0000b2;
+    margin: 5px;
+    text-align: center;
+    font-size: 25px;
 }
